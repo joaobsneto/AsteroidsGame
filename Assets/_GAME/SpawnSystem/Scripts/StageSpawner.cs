@@ -48,7 +48,7 @@ public class StageSpawner : MonoBehaviour
         {
             var spawner = Spawners[Random.Range(0, Spawners.Length)];
             spawner.transform.position = GetPositionInBounds();
-            inGameObstacles.Add(spawner.Spawn());
+            inGameObstacles.Add(spawner.CallSpawn());
         }
         inGameObstacles = new List<GameObject>();
     }

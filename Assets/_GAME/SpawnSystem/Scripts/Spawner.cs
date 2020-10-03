@@ -38,7 +38,24 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public GameObject Spawn()
+    public void Spawn(DamageInfo damageInfo)
+    {
+        Vector3 lastPosition = transform.position;
+        Quaternion lastRotation = transform.rotation;
+        transform.position = damageInfo.Contacts[0].point;
+        transform.up = damageInfo.Contacts[0].normal;
+        CallSpawn();
+        transform.position = lastPosition;
+        transform.rotation = lastRotation;
+    }
+
+    public void Spawn()
+    {
+        CallSpawn();
+    }
+
+
+    internal GameObject CallSpawn()
     {
         return m_pool.GetInstance(setupInstance);
     }

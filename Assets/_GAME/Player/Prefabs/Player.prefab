@@ -53,7 +53,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   PlayerRotation: 0
   m_forwardDirection: {x: 0, y: 1}
   m_forceIntesity: 5
-  m_rotationSpeed: 4
+  m_rotationSpeed: 2
 --- !u!114 &1058090044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_missileSpawner: {fileID: 6540202432556187080}
-  m_delayToShoot: 0.2
+  m_delayToShoot: 0.1
 --- !u!114 &1058090045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,8 +233,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079794932e5ef9643b153f1d1070d570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialHealth: 1
+  m_initialHealth: 1
   m_onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &2113669391669879073
@@ -359,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pool: {fileID: 2185553236669874243}
+  m_poolTag: 
   m_setSpawnedRotation: 1
   m_customRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &8289045660928822175

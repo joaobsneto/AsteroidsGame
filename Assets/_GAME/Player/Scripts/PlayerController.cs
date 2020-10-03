@@ -29,9 +29,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 acc = transform.TransformDirection(m_forwardDirection) * Mathf.Clamp01(PlayerThrust) * m_forceIntesity;
         playerRigidbody.AddForce(acc, ForceMode2D.Force);
-
-        float rotationAcc = Mathf.Clamp(PlayerRotation, -1, 1);
-        playerRigidbody.angularVelocity -= rotationAcc * m_rotationSpeed;
+        float rotationAcc = Mathf.Clamp(PlayerRotation, -1, 1) * -m_rotationSpeed;
+        playerRigidbody.AddTorque(rotationAcc);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

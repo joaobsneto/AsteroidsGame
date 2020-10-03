@@ -8,6 +8,8 @@ public class Poolable : MonoBehaviour
     private UnityEvent m_onTakeFromPool = null;
     [SerializeField]
     private UnityEvent m_onReturnToPool = null;
+    [SerializeField]
+    private bool m_returnToPoolOnParticleStop = false;
 
     private bool isOnPool = false;
     internal void Setup(GameObjectPool pool)
@@ -36,6 +38,12 @@ public class Poolable : MonoBehaviour
             m_onReturnToPool.Invoke();
             gameObject.SetActive(false);
         }
+    }
+
+    internal void OnParticleSystemStopped()
+    {
+        if (m_returnToPoolOnParticleStop)
+            ReturnToPool();
     }
 
 }
