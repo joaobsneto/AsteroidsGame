@@ -31,10 +31,10 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.AddForce(acc, ForceMode2D.Force);
 
         float rotationAcc = Mathf.Clamp(PlayerRotation, -1, 1);
-        playerRigidbody.AddTorque(rotationAcc * m_rotationSpeed);
+        playerRigidbody.angularVelocity -= rotationAcc * m_rotationSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Entrou");
     }
