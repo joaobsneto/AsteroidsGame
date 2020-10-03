@@ -82,28 +82,16 @@ public class ScreenWrapper : MonoBehaviour
             -2 * screenWrapperController.OrthographicSizeOnY));
         Physics2D.IgnoreCollision(collider, leftTopColliderComp, true);
         leftTopCollider.name = $"{gameObject.name}-LeftTopCollider";
-        //leftTopColliderComp.isTrigger = true;
 
-        //leftCollider.transform.parent = m_colliderParent.transform;
         leftCollider.SetActive(false);
 
-        //topCollider.transform.parent = m_colliderParent.transform;
         topCollider.SetActive(false);
 
-        //leftTopCollider.transform.parent = m_colliderParent.transform;
         leftTopCollider.SetActive(false);
 
         initialInertia = targetRigidbody.inertia;
         targetRigidbody.centerOfMass = Vector2.zero;
     }
-
-
-
-    private Func<Rigidbody2D, ScreenWrapperCameraController, Vector3> calculateLeftColliderPosition = LeftColliderPosition;
-
-    private Func<Rigidbody2D, ScreenWrapperCameraController, Vector3> calculateTopColliderPosition = TopColliderPosition;
-
-    private Func<Rigidbody2D, ScreenWrapperCameraController, Vector3> calculateLeftTopColliderPosition = LeftTopColliderPosition;
 
     private void FixedUpdate()
     {
@@ -134,9 +122,9 @@ public class ScreenWrapper : MonoBehaviour
 
         bool activateLeftCollider = rightCorner > screenWrapperController.RightBound;
         bool activateTopCollider = bottomCorner < screenWrapperController.BottomBound;
-        if (UpdateAuxCollider(leftCollider, activateLeftCollider, calculateLeftColliderPosition, targetRigidbody, screenWrapperController) |
-        UpdateAuxCollider(topCollider, activateTopCollider, calculateTopColliderPosition, targetRigidbody, screenWrapperController) |
-        UpdateAuxCollider(leftTopCollider, activateTopCollider && activateLeftCollider, calculateLeftTopColliderPosition, targetRigidbody, screenWrapperController))
+        if (UpdateAuxCollider(leftCollider, activateLeftCollider) |
+        UpdateAuxCollider(topCollider, activateTopCollider) |
+        UpdateAuxCollider(leftTopCollider, activateTopCollider && activateLeftCollider))
         {
             targetRigidbody.inertia = initialInertia;
             targetRigidbody.centerOfMass = Vector2.zero;
@@ -144,8 +132,21 @@ public class ScreenWrapper : MonoBehaviour
 
     }
 
-    private static bool UpdateAuxCollider(GameObject target, bool isActive, Func<Rigidbody2D, ScreenWrapperCameraController, Vector3> targetPosition,
-        Rigidbody2D rigidbody, ScreenWrapperCameraController screenWrapperCameraController)
+    private void OnDestroy()
+    {
+        Destroy(leftCollider);
+        Destroy(topCollider);
+        Destroy(leftTopCollider);
+    }
+
+    private void OnDisable()
+    {
+        if (leftCollider != null) leftCollider.SetActive(false);
+        if (topCollider != null) topCollider.SetActive(false);
+        if (leftTopCollider != null) leftTopCollider.SetActive(false);
+    }
+
+    private static bool UpdateAuxCollider(GameObject target, bool isActive)
     {
         if (isActive)
         {

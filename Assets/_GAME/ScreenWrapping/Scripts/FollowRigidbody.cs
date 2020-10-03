@@ -4,10 +4,9 @@ using UnityEngine;
 public class FollowRigidbody : MonoBehaviour
 {
     public Vector2 Offset;
-
-    private Rigidbody2D target;
-
     private Rigidbody2D self;
+
+    public Rigidbody2D Target { get; private set; }
 
     private void Awake()
     {
@@ -18,14 +17,14 @@ public class FollowRigidbody : MonoBehaviour
 
     private void OnEnable()
     {
-        if (target != null)
+        if (Target != null)
             UpdateTransform();
     }
 
     private void UpdateTransform()
     {
-        self.MovePosition(target.position + Offset);
-        self.SetRotation(target.rotation);
+        self.MovePosition(Target.position + Offset);
+        self.SetRotation(Target.rotation);
     }
 
     // Update is called once per frame
@@ -36,12 +35,12 @@ public class FollowRigidbody : MonoBehaviour
 
     internal void SetUp(Rigidbody2D targetRigidbody, Vector2 offset)
     {
-        target = targetRigidbody;
+        Target = targetRigidbody;
         Offset = offset;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        target.SendMessage("OnCollisionEnter2D", collision);
+        Target.SendMessage("OnCollisionEnter2D", collision);
     }
 }

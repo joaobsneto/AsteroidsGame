@@ -1,12 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerController))]
 public class InputPlayerMapperController : MonoBehaviour
 {
+    
+    [SerializeField]
+    private Spawner m_missileSpawner = null;
+    
+    [SerializeField]
+    private float m_delayToShoot = .5f;
+
     private PlayerController playerController;
+    private float lastFireTime;
 
     private void Awake()
     {
@@ -15,7 +21,12 @@ public class InputPlayerMapperController : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire!");
+        if (!context.performed) return;
+        if (Time.time - lastFireTime > m_delayToShoot)
+        {
+            m_missileSpawner.Spawn();
+            lastFireTime = Time.time;
+        }
     }
 
     public void Rotate(InputAction.CallbackContext context)
@@ -28,4 +39,6 @@ public class InputPlayerMapperController : MonoBehaviour
 
         playerController.PlayerThrust = context.ReadValue<float>();
     }
+
+
 }

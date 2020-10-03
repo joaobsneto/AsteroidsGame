@@ -4,7 +4,7 @@ using System.Collections;
 public class RandomRotator : MonoBehaviour
 {
     [SerializeField]
-    private float tumble;
+    private Vector2 m_angularSpeedRange = new Vector2(6, 11);
 
     private Vector3 rotationAxis;
 
@@ -15,6 +15,6 @@ public class RandomRotator : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(rotationAxis, Time.deltaTime * tumble);
+        transform.Rotate(rotationAxis, Time.deltaTime * Random.Range(m_angularSpeedRange.x, m_angularSpeedRange.y));
     }
 }

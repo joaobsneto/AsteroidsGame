@@ -88,6 +88,17 @@
                 },
                 {
                     "name": "",
+                    "id": "bcddaf89-9d9d-483b-b124-db02f96db3f1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6befb047-2560-4ff2-9aed-7d301a3607a4",
                     "path": "<Gamepad>/dpad/x",
                     "interactions": "",

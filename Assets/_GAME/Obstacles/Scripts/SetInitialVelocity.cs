@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class SetInitialVelocity : MonoBehaviour
 {
@@ -16,10 +15,11 @@ public class SetInitialVelocity : MonoBehaviour
     [SerializeField]
     private Vector2 customAxis = Vector2.up;
 
-
-    void Start()
+    private void OnEnable()
     {
-        GetComponent<Rigidbody2D>().velocity = initialVelocity + Random.insideUnitCircle* initialRandomLength + customAxis * initialCustomAxisVelocity;
+        var rigidbody = GetComponent<Rigidbody2D>();
+        var customAxis3 = transform.TransformDirection(customAxis);
+        rigidbody.velocity = initialVelocity + Random.insideUnitCircle * initialRandomLength + new Vector2(customAxis3.x, customAxis3.y) * initialCustomAxisVelocity;
     }
 
 }
