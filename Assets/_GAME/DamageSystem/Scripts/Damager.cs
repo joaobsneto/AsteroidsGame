@@ -11,7 +11,7 @@ public class Damager : MonoBehaviour
         var followRigidbody = collision.rigidbody.GetComponent<FollowRigidbody>();
         Rigidbody2D target = (followRigidbody != null) ? followRigidbody.Target : collision.rigidbody;
         var damageable = target.GetComponent<Damageable>();
-        if (damageable != null) damageable.TakeDamage(AttackDamage);
+        if (damageable != null) damageable.TakeDamage(new DamageInfo(collision.contacts, AttackDamage));
     }
 
 }
