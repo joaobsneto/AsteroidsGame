@@ -24,14 +24,36 @@ public class ScreenWrapper : MonoBehaviour
     {
         screenWraperController = Camera.main.GetComponent<ScreenWrapperCameraController>();
         targetRigidbody = GetComponent<Rigidbody2D>();
-        leftCollider = Instantiate(m_colliderParent, LeftColliderPosition(m_colliderParent.transform, screenWraperController),
-            m_colliderParent.transform.rotation, m_colliderParent.transform);
+        var collider = m_colliderParent.GetComponent<Collider2D>();
+        var colliderTransform = m_colliderParent.transform;
+
+        leftCollider = Instantiate(m_colliderParent, LeftColliderPosition(colliderTransform, screenWraperController),
+            m_colliderParent.transform.rotation);
+        var leftColliderComp = leftCollider.GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(collider, leftColliderComp, true);
+        leftColliderComp.isTrigger = true;
+        
+
+        topCollider = Instantiate(m_colliderParent, TopColliderPosition(colliderTransform, screenWraperController),
+            m_colliderParent.transform.rotation);
+        var topColliderComp = topCollider.GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(collider, topColliderComp, true);
+        topColliderComp.isTrigger = true;
+        
+
+        leftTopCollider = Instantiate(m_colliderParent, LeftTopColliderPosition(colliderTransform, screenWraperController),
+            m_colliderParent.transform.rotation);
+        var leftTopColliderComp = leftTopCollider.GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(collider, leftTopColliderComp, true);
+        leftTopColliderComp.isTrigger = true;
+
+        leftCollider.transform.parent = m_colliderParent.transform;
         leftCollider.SetActive(false);
-        topCollider = Instantiate(m_colliderParent, TopColliderPosition(m_colliderParent.transform, screenWraperController),
-            m_colliderParent.transform.rotation, m_colliderParent.transform);
+
+        topCollider.transform.parent = m_colliderParent.transform;
         topCollider.SetActive(false);
-        leftTopCollider = Instantiate(m_colliderParent, LeftTopColliderPosition(m_colliderParent.transform, screenWraperController),
-            m_colliderParent.transform.rotation, m_colliderParent.transform);
+
+        leftTopCollider.transform.parent = m_colliderParent.transform;
         leftTopCollider.SetActive(false);
     }
 
@@ -56,8 +78,6 @@ public class ScreenWrapper : MonoBehaviour
 
     private Func<Transform, ScreenWrapperCameraController, Vector3> calculateLeftTopColliderPosition = LeftTopColliderPosition;
 
-    //private Func<Vector3> calculateLeftColliderPosition => LeftColliderPosition;
-
     private void FixedUpdate()
     {
         float leftCorner = targetRigidbody.position.x - m_BoundingBoxSize.x / 2;
@@ -79,14 +99,19 @@ public class ScreenWrapper : MonoBehaviour
             else if (wrapLeft) newPosition.x += 2 * screenWraperController.OrthographicSizeOnX;
             if (wrapBottom) newPosition.y += 2 * screenWraperController.OrthographicSizeOnY;
             else if (wrapTop) newPosition.y -= 2 * screenWraperController.OrthographicSizeOnY;
-            targetRigidbody.MovePosition(newPosition);
+            targetRigidbody.position = newPosition;
         }
 
+        //Debug.Log($"{wrapTop} {wrapRight} {wrapBottom} {wrapLeft}");
+
+        
         bool activateLeftCollider = rightCorner > screenWraperController.RightBound;
         bool activateTopCollider = bottomCorner < screenWraperController.BottomBound;
+        
         UpdateAuxCollider(leftCollider, activateLeftCollider, calculateLeftColliderPosition, m_colliderParent.transform, screenWraperController);
         UpdateAuxCollider(topCollider, activateTopCollider, calculateTopColliderPosition, m_colliderParent.transform, screenWraperController);
         UpdateAuxCollider(leftTopCollider, activateTopCollider && activateLeftCollider, calculateLeftTopColliderPosition, m_colliderParent.transform, screenWraperController);
+        
     }
 
     private static void UpdateAuxCollider(GameObject target, bool isActive, Func<Transform, ScreenWrapperCameraController, Vector3> targetPosition, 
