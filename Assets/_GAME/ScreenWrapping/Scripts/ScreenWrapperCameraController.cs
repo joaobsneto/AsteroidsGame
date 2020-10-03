@@ -26,9 +26,7 @@ public class ScreenWrapperCameraController : MonoBehaviour
 
     public float CameraZ { get; private set; }
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         selfCamera = GetComponent<Camera>();
         
