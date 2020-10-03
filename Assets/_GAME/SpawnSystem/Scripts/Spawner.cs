@@ -15,9 +15,9 @@ public class Spawner : MonoBehaviour
     {
         setupInstance = new Action<GameObject>(SetUpInstance);
     }
-    public void Spawn()
+    public GameObject Spawn()
     {
-        m_pool.GetInstance(setupInstance);
+        return m_pool.GetInstance(setupInstance);
     }
 
     private void SetUpInstance(GameObject instance)

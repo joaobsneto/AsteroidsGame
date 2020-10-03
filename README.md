@@ -1,6 +1,10 @@
 # AsteroidsGame
 Asteroids Game on Unity
 
+## Architecture overview
+
+
+
 ## Used free assets
 https://assetstore.unity.com/packages/3d/luminaris-starship-71439
 
