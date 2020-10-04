@@ -54,6 +54,12 @@ public class Spawner : MonoBehaviour
         CallSpawn();
     }
 
+    public void SpawnRandomDirection()
+    {
+        m_customRotation = Quaternion.Euler(new Vector3(0, 0, UnityEngine.Random.Range(0, 360)));
+        CallSpawn();
+    }
+
 
     internal GameObject CallSpawn()
     {

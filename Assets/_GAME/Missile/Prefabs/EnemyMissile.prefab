@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7237884256742439884}
   - component: {fileID: 7431142042276963248}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 7237884256781584476}
   - component: {fileID: 7237884256781584478}
   - component: {fileID: 7237884256781584479}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab4c38d8203e3914eb3f7c151859af86, type: 2}
+  - {fileID: 2100000, guid: bf01474b0da471b4188576d5568fe4b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7237884257876433911}
   - component: {fileID: 7237884257876433910}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.999683, g: 1, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.12838984, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -237,8 +237,8 @@ GameObject:
   - component: {fileID: 3229402862764499368}
   - component: {fileID: 8818508350615354148}
   - component: {fileID: 7956561054772735563}
-  m_Layer: 8
-  m_Name: Missile
+  m_Layer: 12
+  m_Name: EnemyMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
   initialRandomLength: 0
-  initialCustomAxisVelocity: 15
+  initialCustomAxisVelocity: 16
   customAxis: {x: 0, y: 1}
 --- !u!114 &1280451208
 MonoBehaviour:
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5d74c66eed00c4f8184c1e109e7f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_time: 0.4
+  m_time: 0.6
   m_timeVariance: {x: 0, y: 0}
   m_onCompleteTimer:
     m_PersistentCalls:
@@ -468,7 +468,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: aa4e8e71e56516f40a04a952266d5c7f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.481
   m_Pitch: 1
   Loop: 0
   Mute: 0
