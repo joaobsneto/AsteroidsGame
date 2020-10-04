@@ -777,6 +777,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &860466472 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 147946614002770352, guid: cf5c14f4182893b4e826b3adc573c24c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2113669391374535855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253483125
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +961,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619978787}
   m_CullTransparentMesh: 0
+--- !u!1 &1751621547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2113669391457443988, guid: cf5c14f4182893b4e826b3adc573c24c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2113669391374535855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1751621548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751621547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4768176ee3ab4224791ce40c2614fa7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkDuration: 2
+  m_gameState: {fileID: 11400000, guid: 53fb8755566caa849af85408a7e8d73c, type: 2}
+  m_viewAnimator: {fileID: 860466472}
 --- !u!1 &1859450066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1317,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1828575481, guid: cf5c14f4182893b4e826b3adc573c24c, type: 3}
+      propertyPath: m_onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1751621548}
+    - target: {fileID: 1828575481, guid: cf5c14f4182893b4e826b3adc573c24c, type: 3}
+      propertyPath: m_onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828575481, guid: cf5c14f4182893b4e826b3adc573c24c, type: 3}
+      propertyPath: m_onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2113669391457443984, guid: cf5c14f4182893b4e826b3adc573c24c,
         type: 3}
       propertyPath: m_LocalPosition.x

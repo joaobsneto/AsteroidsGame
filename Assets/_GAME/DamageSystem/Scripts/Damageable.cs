@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
+    public bool IsInvulnerable;
+
     [SerializeField]
     private int m_initialHealth = 1;
     public int Health { get; private set; }
@@ -32,7 +34,7 @@ public class Damageable : MonoBehaviour
 
     public void TakeDamage(DamageInfo damageInfo)
     {
-        if (IsDead) return;
+        if (IsDead || IsInvulnerable) return;
         lastDamage = damageInfo;
         m_onTakeDamage.Invoke(damageInfo);
         Health -= damageInfo.DamageValue;
