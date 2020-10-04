@@ -17,7 +17,7 @@ public class GameStateController : MonoBehaviour
         m_gameState.Score = 0;
         m_gameState.ShipsLeft = 5 - SelectDifficulty;
         m_gameState.InitialNumberOfObstacles = 2 * (SelectDifficulty+1);
-        m_gameState.NumberOfObstaclesIncrement = 2 * (SelectDifficulty+1);
+        m_gameState.NumberOfObstaclesIncrement = SelectDifficulty+1;
         SceneManager.LoadScene(InGameSceneName);
     }
 

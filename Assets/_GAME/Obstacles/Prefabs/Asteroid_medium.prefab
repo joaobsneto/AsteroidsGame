@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pool: {fileID: 0}
-  m_poolTag: BigExplosionPool
+  m_poolTag: MediumExplosionGOPool
   m_setSpawnedRotation: 1
   m_customRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &2058631389632035297
