@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageSpawner : MonoBehaviour
 {
+    [SerializeField]
+    private GameState m_gameState = null;
     public int NumberOfObstacles;
     public Spawner[] Spawners;
     [SerializeField]
@@ -15,7 +17,12 @@ public class StageSpawner : MonoBehaviour
     {
         cameraController = Camera.main.GetComponent<ScreenWrapperCameraController>();
         m_stage.OnRemoveAll += OnClearStage;
+        if (m_gameState != null)
+        {
+            NumberOfObstacles = m_gameState.InitialNumberOfObstacles;
+        }
         StartStage();
+
     }
 
     private void OnClearStage()

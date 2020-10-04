@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private GameState m_gameState = null;
+    [SerializeField]
+    private string InGameSceneName = "InGame";
+
+    public int SelectDifficulty = 1;
+
+    public void StartGame()
     {
-        
+        m_gameState.ShipsLeft = 5 - SelectDifficulty;
+        m_gameState.InitialNumberOfObstacles = 2 * SelectDifficulty;
+        m_gameState.NumberOfObstaclesIncrement = 2 + 2 * (SelectDifficulty+1);
+        SceneManager.LoadScene(InGameSceneName);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateDifficulty(int newValue)
     {
-        
+        SelectDifficulty = newValue;
     }
 }
