@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialVelocity: {x: 0, y: 0}
-  initialRandomLength: 1
+  initialRandomLength: 2
   initialCustomAxisVelocity: 0
   customAxis: {x: 0, y: 1}
 --- !u!50 &1298089695
@@ -339,6 +339,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInvulnerable: 0
   m_initialHealth: 1
+  m_onResetHealth:
+    m_PersistentCalls:
+      m_Calls: []
   m_onDie:
     m_PersistentCalls:
       m_Calls:

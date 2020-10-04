@@ -337,6 +337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsInvulnerable: 0
   m_initialHealth: 1
+  m_onResetHealth:
+    m_PersistentCalls:
+      m_Calls: []
   m_onDie:
     m_PersistentCalls:
       m_Calls:

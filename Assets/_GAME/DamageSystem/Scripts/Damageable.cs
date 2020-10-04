@@ -10,6 +10,9 @@ public class Damageable : MonoBehaviour
     [SerializeField]
     private int m_initialHealth = 1;
     public int Health { get; private set; }
+
+    [SerializeField]
+    private UnityEvent m_onResetHealth = null;
     [SerializeField]
     private DamageInfoEvent m_onDie = null;
     [SerializeField]
@@ -28,6 +31,7 @@ public class Damageable : MonoBehaviour
     {
         Health = m_initialHealth;
         wasAlive = true;
+        m_onResetHealth.Invoke();
     }
 
 

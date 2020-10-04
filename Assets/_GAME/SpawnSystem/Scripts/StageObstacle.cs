@@ -8,11 +8,11 @@ public class StageObstacle : MonoBehaviour
     private StageReference m_stage = null;
     private void OnEnable()
     {
-        m_stage.Add();
+        m_stage.Add(gameObject);
     }
 
     private void OnDisable()
     {
-        m_stage.Remove();
+        m_stage.Remove(gameObject);
     }
 }

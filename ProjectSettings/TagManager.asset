@@ -10,6 +10,7 @@ TagManager:
   - BigExplosionPool
   - MediumAsteroidGOPool
   - BigAsteroidGOPool
+  - PlayerExplosionGOPool
   layers:
   - Default
   - TransparentFX
