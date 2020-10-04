@@ -3,17 +3,17 @@
 public class GameState : ScriptableObject
 {
     [SerializeField]
-    private int m_points = 0;
+    private int m_score = 0;
     
-    public IntEvent OnChangePoints;
-    public int Points
+    public IntEvent OnChangeScore;
+    public int Score
     {
-        get => m_points;
+        get => m_score;
         set  {
-            if (value != m_points)
+            if (value != m_score)
             {
-                m_points = value;
-                OnChangePoints.Invoke(m_points);
+                m_score = value;
+                OnChangeScore.Invoke(m_score);
             }
         }
     }

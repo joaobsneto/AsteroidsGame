@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 2718429350949339182}
   - component: {fileID: -417825049213589084}
   - component: {fileID: 4460937179998294836}
+  - component: {fileID: 2042208602208423298}
   m_Layer: 10
   m_Name: Asteroid_medium
   m_TagString: Untagged
@@ -295,6 +296,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2042208602208423298}
+        m_MethodName: GiveScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -356,6 +368,20 @@ MonoBehaviour:
   m_spawners:
   - {fileID: 6108127233470805331}
   SpawnAmount: {x: 1, y: 2}
+--- !u!114 &2042208602208423298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744582403233820516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697596ee45ae5024e8a81754b3cf7da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gameState: {fileID: 11400000, guid: 53fb8755566caa849af85408a7e8d73c, type: 2}
+  m_score: 50
 --- !u!1 &4017122100951807232
 GameObject:
   m_ObjectHideFlags: 0

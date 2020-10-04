@@ -14,15 +14,15 @@ public class InGameUIController : MonoBehaviour
 
     private void OnEnable()
     {
-        OnChangePoints(m_gameState.Points);
+        OnChangePoints(m_gameState.Score);
         OnChangeShipsLeft(m_gameState.ShipsLeft);
-        m_gameState.OnChangePoints.AddListener(OnChangePoints);
+        m_gameState.OnChangeScore.AddListener(OnChangePoints);
         m_gameState.OnChangeShipsLeft.AddListener(OnChangeShipsLeft);
     }
 
     private void OnDisable()
     {
-        m_gameState.OnChangePoints.RemoveListener(OnChangePoints);
+        m_gameState.OnChangeScore.RemoveListener(OnChangePoints);
         m_gameState.OnChangeShipsLeft.RemoveListener(OnChangeShipsLeft);
     }
 
