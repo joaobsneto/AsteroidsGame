@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d1d7c3b8029f0478389144d1ba4d9d, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  m_score: 1870
+  m_score: 14980
   OnChangeScore:
     m_PersistentCalls:
       m_Calls: []
-  m_shipsLeft: 2
+  m_shipsLeft: 970
   OnChangeShipsLeft:
     m_PersistentCalls:
       m_Calls: []
-  InitialNumberOfObstacles: 6
-  NumberOfObstaclesIncrement: 6
+  InitialNumberOfObstacles: 4
+  NumberOfObstaclesIncrement: 4
