@@ -24,7 +24,7 @@ public class InputPlayerMapperController : MonoBehaviour
         if (!context.performed) return;
         if (Time.time - lastFireTime > m_delayToShoot)
         {
-            m_missileSpawner.CallSpawn();
+            m_missileSpawner.Spawn();
             lastFireTime = Time.time;
         }
     }

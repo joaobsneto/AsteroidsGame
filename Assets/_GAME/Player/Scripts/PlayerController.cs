@@ -32,9 +32,4 @@ public class PlayerController : MonoBehaviour
         float rotationAcc = Mathf.Clamp(PlayerRotation, -1, 1) * -m_rotationSpeed;
         playerRigidbody.AddTorque(rotationAcc);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Entrou");
-    }
 }

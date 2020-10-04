@@ -404,6 +404,7 @@ MonoBehaviour:
   m_onReturnToPool:
     m_PersistentCalls:
       m_Calls: []
+  m_returnToPoolOnParticleStop: 0
 --- !u!114 &3229402862764499368
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,16 +6,21 @@ public class StageSpawner : MonoBehaviour
 {
     public int NumberOfObstacles;
     public Spawner[] Spawners;
-
-    private List<GameObject> inGameObstacles;
+    [SerializeField]
+    private StageReference m_stage = null;
 
     private ScreenWrapperCameraController cameraController;
 
     private void Start()
     {
         cameraController = Camera.main.GetComponent<ScreenWrapperCameraController>();
-        inGameObstacles = new List<GameObject>();
+        m_stage.OnRemoveAll += OnClearStage;
         StartStage();
+    }
+
+    private void OnClearStage()
+    {
+        Debug.Log("End game");
     }
 
     private Vector3 GetPositionInBounds()
@@ -43,13 +48,11 @@ public class StageSpawner : MonoBehaviour
 
     public void StartStage()
     {
-        
         for (int i = 0; i < NumberOfObstacles; i++)
         {
             var spawner = Spawners[Random.Range(0, Spawners.Length)];
             spawner.transform.position = GetPositionInBounds();
-            inGameObstacles.Add(spawner.CallSpawn());
+            spawner.Spawn();
         }
-        inGameObstacles = new List<GameObject>();
     }
 }

@@ -16,7 +16,7 @@ public class SmallAsteroidSpawnController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var spawner = m_spawners[Random.Range(0, m_spawners.Length)];
-            spawner.CallSpawn();
+            spawner.Spawn();
         }
     }
 }

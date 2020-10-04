@@ -19,7 +19,10 @@ public class GameObjectPool : MonoBehaviour
         GameObject fromPool;
         if (availableInstances.Count == 0)
         {
+            bool prefabActivation = Prefab.activeSelf;
+            Prefab.SetActive(false);
             fromPool = Instantiate(Prefab);
+            Prefab.SetActive(prefabActivation);
             fromPool.GetComponent<Poolable>().Setup(this);
         } else
         {
