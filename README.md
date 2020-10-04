@@ -13,7 +13,7 @@ The copy approach is used in the colliders because the object can be renderer in
 Now we can use all Unity features like shaders, particles, 3D/2D objects and physics maintaining the desired mechanics of Asteroids.
 
 
-##WebGL Build
+## WebGL Build
 
 https://kinguitar.itch.io/asteroids
 
