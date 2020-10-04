@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GameState
   m_EditorClassIdentifier: 
   Points: 0
-  ShipsLeft: 6
+  ShipsLeft: 96
+  InitialNumberOfObstacles: 2
+  NumberOfObstaclesIncrement: 6

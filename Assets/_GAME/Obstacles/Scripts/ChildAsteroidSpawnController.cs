@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallAsteroidSpawnController : MonoBehaviour
+public class ChildAsteroidSpawnController : MonoBehaviour
 {
     [SerializeField]
     private Spawner[] m_spawners = null;
@@ -16,7 +16,8 @@ public class SmallAsteroidSpawnController : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var spawner = m_spawners[Random.Range(0, m_spawners.Length)];
-            spawner.Spawn();
+            
+            spawner.Spawn(damageInfo);
         }
     }
 }

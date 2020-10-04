@@ -1,5 +1,99 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &369505991972604145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486051360461201546}
+  - component: {fileID: 1891275709772516042}
+  m_Layer: 10
+  m_Name: ExplosionSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486051360461201546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369505991972604145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.3521752, y: 0.49370766, z: -2.4745815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6219739862196524997}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891275709772516042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369505991972604145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac65d322af95f545b75791d90b2ffaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pool: {fileID: 0}
+  m_poolTag: BigExplosionPool
+  m_setSpawnedRotation: 1
+  m_customRotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!1 &2058631389632035297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3255035275324564652}
+  - component: {fileID: 6108127233470805331}
+  m_Layer: 10
+  m_Name: SmallSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3255035275324564652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058631389632035297}
+  m_LocalRotation: {x: -0, y: -0, z: -0.32503906, w: 0.9457006}
+  m_LocalPosition: {x: -1.9041752, y: 0.5927075, z: -2.4745815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6219739862196524997}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -37.936}
+--- !u!114 &6108127233470805331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058631389632035297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac65d322af95f545b75791d90b2ffaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pool: {fileID: 0}
+  m_poolTag: SmallAsteroidGOPool
+  m_setSpawnedRotation: 1
+  m_customRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &2770425760230032357
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,8 +155,9 @@ GameObject:
   - component: {fileID: 1298089697}
   - component: {fileID: 2718429350949339182}
   - component: {fileID: -417825049213589084}
+  - component: {fileID: 4460937179998294836}
   m_Layer: 10
-  m_Name: Asteroid_small
+  m_Name: Asteroid_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +176,8 @@ Transform:
   m_Children:
   - {fileID: 4453423892597866998}
   - {fileID: 7105224524198145691}
+  - {fileID: 3255035275324564652}
+  - {fileID: 486051360461201546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -535.114}
@@ -160,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079794932e5ef9643b153f1d1070d570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsInvulnerable: 0
   m_initialHealth: 1
   m_onDie:
     m_PersistentCalls:
@@ -167,6 +265,28 @@ MonoBehaviour:
       - m_Target: {fileID: 2718429350949339182}
         m_MethodName: ReturnToPool
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1891275709772516042}
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108127233470805331}
+        m_MethodName: Spawn
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -221,6 +341,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stage: {fileID: 11400000, guid: 35ec89c9543aefe4ea5fa4e80de76d2d, type: 2}
+--- !u!114 &4460937179998294836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3744582403233820516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8351f31dc57e2fe4786ac66dfbb7928c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawners:
+  - {fileID: 6108127233470805331}
+  SpawnAmount: {x: 1, y: 2}
 --- !u!1 &4017122100951807232
 GameObject:
   m_ObjectHideFlags: 0

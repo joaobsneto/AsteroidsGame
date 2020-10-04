@@ -9,6 +9,7 @@ TagManager:
   - HitEffectGOPool
   - BigExplosionPool
   - MediumAsteroidGOPool
+  - BigAsteroidGOPool
   layers:
   - Default
   - TransparentFX
